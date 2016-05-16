@@ -61,6 +61,10 @@ public class ForecastFragment extends Fragment {
             weatherTask.execute("Tokyo");
             return true;
         }
+        if (id == R.id.action_settings) {
+            startActivity(new Intent(getActivity(), SettingsActivity.class));
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
     @Override
@@ -89,7 +93,8 @@ public class ForecastFragment extends Fragment {
         listView.setAdapter(forecastAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
-                        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                        public void onItemClick(AdapterView<
+                                ?> adapterView, View view, int position, long l) {
                         String forecast = forecastAdapter.getItem(position);
                         //Toast.makeText(getActivity(), forecast, Toast.LENGTH_SHORT).show();
                             Intent detailIntent = new Intent(getActivity(), DetailActivity.class)
